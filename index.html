@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>互動式圖片展示</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: Arial, sans-serif;
+        }
+
+        .buttons-container {
+            display: flex;
+            flex-wrap: wrap;
+            width: 370px;
+            margin-bottom: 20px;
+        }
+
+        .button {
+            width: 50px;
+            height: 50px;
+            background-size: cover;
+            margin: 5px;
+            cursor: pointer;
+        }
+
+        .display-container {
+            width: 450px;
+            height: 420px;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            margin-top: 20px;
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+
+        .display-container.active {
+            opacity: 1;
+            background-image: url('https://i.imgur.com/Gprkscx.png');
+        }
+
+        .display-image {
+            position: absolute;
+            width: 294px;
+            height: 381px;
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+
+        .display-image.active {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="buttons-container">
+        <!-- 19個圖片按鈕 -->
+        <div class="button" id="button1" style="background-image: url('https://i.imgur.com/oGFyBt0.png');"></div>
+        <div class="button" id="button2" style="background-image: url('https://i.imgur.com/dlCM1cl.png');"></div>
+        <div class="button" id="button3" style="background-image: url('https://i.imgur.com/zYEYoDK.png');"></div>
+        <div class="button" id="button4" style="background-image: url('https://i.imgur.com/1bdHV8P.png');"></div>
+        <div class="button" id="button5" style="background-image: url('https://i.imgur.com/tM6lz9Q.png');"></div>
+        <div class="button" id="button6" style="background-image: url('https://i.imgur.com/CVkMnKX.png');"></div>
+        <div class="button" id="button7" style="background-image: url('https://i.imgur.com/DOI8ZYl.png');"></div>
+        <div class="button" id="button8" style="background-image: url('https://i.imgur.com/T7SKCWP.png');"></div>
+        <div class="button" id="button9" style="background-image: url('https://i.imgur.com/BRZL4dD.png');"></div>
+        <div class="button" id="button10" style="background-image: url('https://i.imgur.com/bgdkLq2.png');"></div>
+        <div class="button" id="button11" style="background-image: url('https://i.imgur.com/UNdCm8L.png');"></div>
+        <div class="button" id="button12" style="background-image: url('https://i.imgur.com/xCEjfUV.png');"></div>
+        <div class="button" id="button13" style="background-image: url('https://i.imgur.com/79oSgPo.png');"></div>
+        <div class="button" id="button14" style="background-image: url('https://i.imgur.com/1u8cWoG.png');"></div>
+        <div class="button" id="button15" style="background-image: url('https://i.imgur.com/XOrjxre.png');"></div>
+        <div class="button" id="button16" style="background-image: url('https://i.imgur.com/tZbYLJr.png');"></div>
+        <div class="button" id="button17" style="background-image: url('https://i.imgur.com/DLOZzRz.png');"></div>
+        <div class="button" id="button18" style="background-image: url('https://i.imgur.com/0wzj2Ji.png');"></div>
+        <div class="button" id="button19" style="background-image: url('https://i.imgur.com/cpJA6OA.png');"></div>
+    </div>
+
+    <div class="display-container" id="displayContainer">
+        <!-- 19個展示圖片 -->
+        <img src="https://i.imgur.com/zPlobmt.gif" class="display-image" id="image1">
+        <img src="https://i.imgur.com/xvnMjAV.gif" class="display-image" id="image2">
+        <img src="https://i.imgur.com/84P3ook.gif" class="display-image" id="image3">
+        <img src="https://i.imgur.com/dKlKjh5.gif" class="display-image" id="image4">
+        <img src="https://i.imgur.com/M6rPuA8.gif" class="display-image" id="image5">
+        <img src="https://i.imgur.com/AfUNqCv.gif" class="display-image" id="image6">
+        <img src="https://i.imgur.com/2n6ERyb.gif" class="display-image" id="image7">
+        <img src="https://i.imgur.com/LCgtKcl.gif" class="display-image" id="image8">
+        <img src="https://i.imgur.com/0KiaomF.gif" class="display-image" id="image9">
+        <img src="https://i.imgur.com/tJDbZFu.gif" class="display-image" id="image10">
+        <img src="https://i.imgur.com/Fhe4Eys.gif" class="display-image" id="image11">
+        <img src="https://i.imgur.com/0lsOtQb.gif" class="display-image" id="image12">
+        <img src="https://i.imgur.com/6PV8CC0.gif" class="display-image" id="image13">
+        <img src="https://i.imgur.com/bV1aS3z.gif" class="display-image" id="image14">
+        <img src="https://i.imgur.com/nyTRH4Y.gif" class="display-image" id="image15">
+        <img src="https://i.imgur.com/TYuTkhD.gif" class="display-image" id="image16">
+        <img src="https://i.imgur.com/eRqa3Vi.gif" class="display-image" id="image17">
+        <img src="https://i.imgur.com/9aSmjt0.gif" class="display-image" id="image18">
+        <img src="https://i.imgur.com/9vV9iLO.gif" class="display-image" id="image19">
+    </div>
+
+    <script>
+        const buttons = document.querySelectorAll('.button');
+        const images = document.querySelectorAll('.display-image');
+        const displayContainer = document.getElementById('displayContainer');
+
+        const hoverImages = [
+            'https://i.imgur.com/8Icp35n.png', 'https://i.imgur.com/Yz0YSF0.png', 'https://i.imgur.com/q3fWdhK.png',
+            'https://i.imgur.com/gQpKlWh.png', 'https://i.imgur.com/FKcqk8n.png', 'https://i.imgur.com/lzkiktr.png',
+            'https://i.imgur.com/PBPlQMs.png', 'https://i.imgur.com/sEeeE6n.png', 'https://i.imgur.com/W7srvIy.png',
+            'https://i.imgur.com/AWDLdwa.png', 'https://i.imgur.com/wXRDkUS.png', 'https://i.imgur.com/DeI6R4Y.png',
+            'https://i.imgur.com/S8APB0Y.png', 'https://i.imgur.com/osmWzIz.png', 'https://i.imgur.com/EArKMuP.png',
+            'https://i.imgur.com/Z1BGh8G.png', 'https://i.imgur.com/NW0qLE7.png', 'https://i.imgur.com/YQZZHkC.png',
+            'https://i.imgur.com/cuQ9Cse.png'
+        ];
+
+        const defaultImages = [
+            'https://i.imgur.com/oGFyBt0.png', 'https://i.imgur.com/dlCM1cl.png', 'https://i.imgur.com/zYEYoDK.png',
+            'https://i.imgur.com/1bdHV8P.png', 'https://i.imgur.com/tM6lz9Q.png', 'https://i.imgur.com/CVkMnKX.png',
+            'https://i.imgur.com/DOI8ZYl.png', 'https://i.imgur.com/T7SKCWP.png', 'https://i.imgur.com/BRZL4dD.png',
+            'https://i.imgur.com/bgdkLq2.png', 'https://i.imgur.com/UNdCm8L.png', 'https://i.imgur.com/xCEjfUV.png',
+            'https://i.imgur.com/79oSgPo.png', 'https://i.imgur.com/1u8cWoG.png', 'https://i.imgur.com/XOrjxre.png',
+            'https://i.imgur.com/tZbYLJr.png', 'https://i.imgur.com/DLOZzRz.png', 'https://i.imgur.com/0wzj2Ji.png',
+            'https://i.imgur.com/cpJA6OA.png'
+        ];
+
+        buttons.forEach((button, index) => {
+            button.addEventListener('mouseover', () => {
+                button.style.backgroundImage = `url('${hoverImages[index]}')`;
+            });
+            button.addEventListener('mouseout', () => {
+                button.style.backgroundImage = `url('${defaultImages[index]}')`;
+            });
+            button.addEventListener('click', () => {
+                displayContainer.classList.add('active');
+                images.forEach(img => {
+                    img.classList.remove('active');
+                });
+                const activeImage = document.getElementById(`image${index + 1}`);
+                activeImage.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
